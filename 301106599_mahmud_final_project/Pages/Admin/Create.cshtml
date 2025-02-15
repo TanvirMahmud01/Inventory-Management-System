@@ -1,0 +1,65 @@
+﻿@page
+@model _301106599_mahmud_final_project.Pages.Admin.CreateModel
+
+
+<h2>Add a new product</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Product.Name" class="control-label"></label>
+        <input asp-for="Product.Name" class="form-control" />
+        <span asp-validation-for="Product.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.SerialNo" class="control-label"></label>
+        <input asp-for="Product.SerialNo" class="form-control" />
+        <span asp-validation-for="Product.SerialNo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.Date" class="control-label"></label>
+        <input asp-for="Product.Date" class="form-control" type="date"/>
+        <span asp-validation-for="Product.Date" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.Price" class="control-label"></label>
+        <input asp-for="Product.Price" class="form-control" />
+        <span asp-validation-for="Product.Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.Quantity" class="control-label"></label>
+        <input asp-for="Product.Quantity" class="form-control" />
+        <span asp-validation-for="Product.Quantity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.CategoryId" class="control-label"></label>
+        <select asp-for="Product.CategoryId" class="form-control" asp-items="Model.Categories"></select>
+        <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.LocationId" class="control-label"></label>
+        <select asp-for="Product.LocationId" class="form-control" asp-items="Model.Locations" ></select>
+        <span asp-validation-for="Product.LocationId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.Description" class="control-label"></label>
+        <textarea asp-for="Product.Description" class="form-control"></textarea>
+        <span asp-validation-for="Product.Description" class="text-danger"></span>
+    </div>
+    <div class="mb-3 row p-1">
+        <label asp-for="ImageFile" class="p-0">Upload Image</label>
+        <input asp-for="ImageFile" id="ImageFile" class="form-control" type="file" />
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+    </div>
+    @* <div class="form-group">
+        <label asp-for="Product.ImageUrl" class="control-label"></label>
+        <input asp-for="Product.ImageUrl" class="form-control" />
+        <span asp-validation-for="Product.ImageUrl" class="text-danger"></span>
+    </div> *@
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
